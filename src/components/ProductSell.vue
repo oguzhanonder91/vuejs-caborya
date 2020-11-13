@@ -16,6 +16,7 @@
             <select v-model="selected" @change="changeProduct" class="form-control">
               <option
                 v-for="product in getProductList"
+                :key="product.id"
                 :value="product.id"
                 :disabled="product.remaining == 0">
                 {{product.title}}

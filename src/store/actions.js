@@ -1,6 +1,6 @@
 import * as util from '../util/util';
 
-export const setTradeResult = ({state, commit}, tradeResult) => {
+export const setTradeResult = ({commit}, tradeResult) => {
   util.service.post("trade/createOrUpdate", tradeResult)
     .then(response => {
       if (response) {
@@ -54,7 +54,7 @@ export const changePassword = (vueContext, [id,param]) => {
   util.service.put("user/changePassword/" + id, param)
     .then(response => {
       if (response) {
-        let toast = util.common.successToast(response.bodyText);
+        util.common.successToast(response.bodyText);
         util.common.control(response);
         util.common.routePush("login");
       }
@@ -68,7 +68,7 @@ export const reSendConfirmation = (vueContext, param) => {
   util.service.put("user/reSendConfirmation", param)
     .then(response => {
       if (response) {
-        let toast = util.common.successToast(response.bodyText);
+        util.common.successToast(response.bodyText);
         util.common.control(response);
         util.common.routePush("login");
       }
