@@ -4,7 +4,7 @@ import store from '../store/store';
 import * as util from '../util/util';
 
 
-const TheContainer = resolve => {
+/*const TheContainer = resolve => {
   require.ensure(['../containers/TheContainer'], () => {
     resolve(require("../containers/TheContainer"))
   })
@@ -58,16 +58,16 @@ const ChangePassword = resolve => {
     resolve(require("../components/ChangePassword"))
   })
 };
-
-/*const DashBoard = () => System.import('../components/Dashboard');
-const TheContainer = () => System.import('../containers/TheContainer');
-const ProductPurchase = () => System.import('../components/ProductPurchase');
-const ProductSell = () => System.import('../components/ProductSell');
-const UserConfirmation = () => System.import('../components/UserConfirmation');
-const Login = () => System.import('../components/Login');
-const Register = () => System.import('../components/Register');
-const ForgotPassword = () => System.import('../components/ForgotPassword');
-const ChangePassword = () => System.import('../components/ChangePassword');*/
+*/
+const DashBoard = () => import('../components/Dashboard');
+const TheContainer = () =>import('../containers/TheContainer');
+const ProductPurchase = () => import('../components/ProductPurchase');
+const ProductSell = () => import('../components/ProductSell');
+const UserConfirmation = () => import('../components/UserConfirmation');
+const Login = () => import('../components/Login');
+const Register = () => import('../components/Register');
+const ForgotPassword = () => import('../components/ForgotPassword');
+const ChangePassword = () =>import('../components/ChangePassword');
 
 Vue.use(VueRouter);
 
