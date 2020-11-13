@@ -112,8 +112,4 @@
 </script>
 
 <style scoped>
-  .container {
-    margin-top: 40px;
-    padding: 40px;
-  }
 </style>

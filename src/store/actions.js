@@ -104,8 +104,6 @@ export const login = (vueContext, loginData) => {
         util.common.control(response);
       }
     }).catch(error => {
-    loginData.password = null;
-    loginData.username = null;
     util.common.control(error);
   });
   util.common.setNull(loginData);

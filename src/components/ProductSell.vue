@@ -18,7 +18,7 @@
                 v-for="product in getProductList"
                 :key="product.id"
                 :value="product.id"
-                :disabled="product.remaining == 0">
+                :disabled="product.remaining === 0">
                 {{product.title}}
               </option>
             </select>
@@ -54,7 +54,7 @@
 
 <script>
   import {mapGetters} from 'vuex';
-  import {productMixin} from '../util/productMixin';
+  import {productMixin} from '@/util/productMixin';
 
   export default {
     name: "ProductSell",
@@ -71,17 +71,12 @@
     computed: {
       ...mapGetters(["getProductList"]),
       saveEnabled() {
-        if (this.sellCount > 0 && this.selected != null && this.sellPrice > 0) {
-          return false;
-        } else {
-          return true;
-        }
+        return !(this.sellCount > 0 && this.selected != null && this.sellPrice > 0);
       },
     },
     methods: {
       changeProduct() {
-        let selectedProduct = this.$store.getters.getProduct(this.selected);
-        this.selectedProduct = selectedProduct;
+        this.selectedProduct = this.$store.getters.getProduct(this.selected);
       },
       sellProduct() {
         if (this.sellCount > this.selectedProduct.remaining) {

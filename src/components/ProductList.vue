@@ -16,14 +16,17 @@
             <th>Açıklama</th>
             </thead>
             <tbody>
-            <tr v-for="product in getProductList">
-              <td class="align-middle text-center"><span class="badge badge-info"> {{product.id}} </span></td>
-              <td class="align-middle text-center"> {{product.title}}</td>
-              <td class="align-middle text-center" :class="getCountClass(product.remaining)"> {{product.remaining}}</td>
-              <td class="align-middle text-center"> {{product.sellCount}}</td>
-              <td style="width: 120px;"> {{product.price | currency}}</td>
-              <td style="width: 120px;" :class="getCountClass(product.profit)"> {{product.profit | currency}}</td>
-              <td class="align-middle"> {{product.description}}</td>
+            <tr v-for="product in getProductList"
+                :key="product.id"
+            >
+              <td class="align-middle text-center"><span class="badge badge-info"> {{ product.id }} </span></td>
+              <td class="align-middle text-center"> {{ product.title }}</td>
+              <td class="align-middle text-center" :class="getCountClass(product.remaining)"> {{ product.remaining }}
+              </td>
+              <td class="align-middle text-center"> {{ product.sellCount }}</td>
+              <td style="width: 120px;"> {{ product.price | currency }}</td>
+              <td style="width: 120px;" :class="getCountClass(product.profit)"> {{ product.profit | currency }}</td>
+              <td class="align-middle"> {{ product.description }}</td>
             </tr>
             </tbody>
           </table>
@@ -40,24 +43,24 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex';
+import {mapGetters} from 'vuex';
 
-  export default {
-    name: "ProductList",
-    computed: {
-      ...mapGetters(["getProductList","getIsLogin"]),
-    },
-    methods: {
-      getCountClass(count) {
-        return {
-          'btn-danger text-white': count <= 0,
-          'btn-success text-white': count > 0
-        }
+export default {
+  name: "ProductList",
+  computed: {
+    ...mapGetters(["getProductList", "getIsLogin"]),
+  },
+  methods: {
+    getCountClass(count) {
+      return {
+        'btn-danger text-white': count <= 0,
+        'btn-success text-white': count > 0
       }
     }
   }
+}
 
-  // Computed ' a parametre gönderemiyoruz.
+// Computed ' a parametre gönderemiyoruz.
 </script>
 
 <style scoped>

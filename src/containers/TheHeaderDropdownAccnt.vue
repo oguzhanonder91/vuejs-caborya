@@ -11,6 +11,7 @@
           <img
             src="../assets/765-default-avatar.png"
             class="c-avatar-img "
+            alt=""
           />
         </div>
       </CHeaderNavLink>
@@ -54,7 +55,5 @@
 </script>
 
 <style scoped>
-  .c-icon {
-    margin-right: 0.3rem;
-  }
+
 </style>

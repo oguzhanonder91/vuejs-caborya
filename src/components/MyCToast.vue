@@ -134,16 +134,4 @@
   .toast {
     opacity: inherit;
   }
-
-  .fade-enter-active {
-    transition: opacity .5s;
-  }
-
-  .fade-leave-active {
-    transition: opacity 2s;
-  }
-
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
 </style>
