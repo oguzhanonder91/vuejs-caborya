@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <AppLoading></AppLoading>
+    <AppToaster></AppToaster>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  import {mapGetters} from 'vuex';
+  import AppToaster from "@/components/AppToaster";
+  import AppLoading from "@/components/AppLoading";
+
+  export default {
+    name: 'app',
+    components: {AppLoading, AppToaster},
+    data() {
+      return {}
+    },
+    created() {
+      if (this.getIsLogin) {
+        this.$store.dispatch("getTradeResult");
+        this.$store.dispatch("getUserAndMenus");
+      }
+    },
+    computed: {
+      ...mapGetters(["getIsLoading", "getMyToast","getIsLogin"]),
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  // Import Main styles for this application
+  @import 'assets/scss/style';
 </style>
