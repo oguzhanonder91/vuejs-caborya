@@ -78,7 +78,6 @@
           email: null,
           password: null,
           matchingPassword: null,
-          roleCode: "USER"
         }
       }
     },
@@ -87,7 +86,6 @@
         util.common.routePush("login");
       },
       createUser() {
-        this.user.roleCode = "USER";
         this.$store.dispatch("userRegister", this.user);
       }
     }
